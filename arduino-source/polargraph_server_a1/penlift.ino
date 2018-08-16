@@ -31,46 +31,46 @@ void penlift_movePen(int start, int end, int delay_ms)
   penHeight.attach(PEN_HEIGHT_SERVO_PIN);
 
 /***Wireless Solenoid control***/
-//if(end==180)
-//{
-//char radiopacket[20] = "up";
-//Serial.println("up");
-//rf69.send((uint8_t *)radiopacket, strlen(radiopacket));
-//rf69.waitPacketSent();
-//  }
-//  
-//else if(end==90)
-//{
-//char radiopacket[20] = "down";
-//Serial.println("down");
-//rf69.send((uint8_t *)radiopacket, strlen(radiopacket));
-//rf69.waitPacketSent();
-//  }
+if(end==90)
+{
+char radiopacket[20] = "up";
+Serial.println("up");
+rf69.send((uint8_t *)radiopacket, strlen(radiopacket));
+rf69.waitPacketSent();
+  }
+  
+else if(end==180)
+{
+char radiopacket[20] = "down";
+Serial.println("down");
+rf69.send((uint8_t *)radiopacket, strlen(radiopacket));
+rf69.waitPacketSent();
+  }
 /*********************/ 
 
 /***Servo control***/
-  if(start < end)
-  {
-    for (int i=start; i<=end; i++) 
-    {
-      penHeight.write(i);
-      delay(delay_ms);
-#ifdef DEBUG_PENLIFT
-      Serial.println(i);
-#endif
-    }
-  }
-  else
-  {
-    for (int i=start; i>=end; i--) 
-    {
-      penHeight.write(i);
-      delay(delay_ms);
-#ifdef DEBUG_PENLIFT
-      Serial.println(i);
-#endif
-    }
-  }
+//  if(start < end)
+//  {
+//    for (int i=start; i<=end; i++) 
+//    {
+//      penHeight.write(i);
+//      delay(delay_ms);
+//#ifdef DEBUG_PENLIFT
+//      Serial.println(i);
+//#endif
+//    }
+//  }
+//  else
+//  {
+//    for (int i=start; i>=end; i--) 
+//    {
+//      penHeight.write(i);
+//      delay(delay_ms);
+//#ifdef DEBUG_PENLIFT
+//      Serial.println(i);
+//#endif
+//    }
+//  }
 /*********************/ 
 
   penHeight.detach();
